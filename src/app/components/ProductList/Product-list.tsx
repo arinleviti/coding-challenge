@@ -14,7 +14,7 @@ interface Props {
 export default function ProductList({ initialProducts }: Props) {
 
   const [products, setProducts] = useState<Product[]>(initialProducts);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [deletingIds, setDeletingIds] = useState<number[]>([]);
 
   async function DeleteProduct(product: Product) {
