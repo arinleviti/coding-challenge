@@ -1,0 +1,68 @@
+[
+  {
+    "id": 1,
+    "name": "Massage Roller",
+    "brand": "WellnessFun",
+    "stars": 4,
+    "price": 29.9,
+    "isBestseller": true,
+    "discounted": true,
+    "discountPercentage": 10,
+    "image": "/images/massage-roller.webp"
+  },
+  {
+    "id": 2,
+    "name": "Wiggly Worm Plush",
+    "brand": "CuddlyFriends",
+    "stars": 4,
+    "price": 24.9,
+    "isBestseller": true,
+    "discounted": false,
+    "discountPercentage": 10,
+    "image": "/images/wriggly-woolly-worms.webp"
+  },
+  {
+    "id": 3,
+    "name": "Sensation Ball",
+    "brand": "FunToys",
+    "stars": 4.2,
+    "price": 19.9,
+    "isBestseller": false,
+    "discounted": true,
+    "discountPercentage": 5,
+    "image": "/images/sensation-ball.webp"
+  },
+  {
+    "id": 4,
+    "name": "Tickle Stick",
+    "brand": "HappyPlay",
+    "stars": 4.8,
+    "price": 14.9,
+    "isBestseller": true,
+    "discounted": true,
+    "discountPercentage": 15,
+    "image": "/images/tickle-stick.webp"
+  },
+  {
+    "id": 5,
+    "name": "Vibrating Alarm Clock",
+    "brand": "MorningFun",
+    "stars": 4.6,
+    "price": 39.9,
+    "isBestseller": false,
+    "discounted": false,
+    "discountPercentage": 0,
+    "image": "/images/vibrating-alarm.webp"
+  },
+  {
+    "id": 6,
+    "name": "Bouncy Egg",
+    "brand": "PlayWorld",
+    "stars": 4.3,
+    "price": 9.9,
+    "isBestseller": false,
+    "discounted": true,
+    "discountPercentage": 20,
+    "image": "/images/bouncy-egg.webp"
+  }
+]

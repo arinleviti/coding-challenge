@@ -1,0 +1,17 @@
+
+.spinnerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.spinnerLarge {
+  width: 8rem;
+  height: 8rem;
+  color: purple;
+}
+
+.restoreButton {
+  margin: 1rem auto;
+  display: block;
+}

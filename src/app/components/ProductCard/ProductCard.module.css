@@ -1,0 +1,6 @@
+.cardImage {
+  height: 300px;
+  width: auto;
+  object-fit: contain;
+  margin: 3rem 0rem;
+}
