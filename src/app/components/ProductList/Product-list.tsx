@@ -14,10 +14,11 @@ interface Props {
 export default function ProductList({ initialProducts }: Props) {
 
   const [products, setProducts] = useState<Product[]>(initialProducts);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [deletingIds, setDeletingIds] = useState<number[]>([]);
 
   async function DeleteProduct(product: Product) {
+    try {
     //using an array, in case multiple deletions happen simultaneously
     //each iteration of the function only removed the ID of the product it's working on
     setDeletingIds(prev => [...prev, product.id]);
@@ -32,22 +33,37 @@ export default function ProductList({ initialProducts }: Props) {
     // In a real app, you'd make an API call to delete the product on the server
     const deletedIds = JSON.parse(localStorage.getItem("deletedIds") || "[]");
     localStorage.setItem("deletedIds", JSON.stringify([...deletedIds, product.id]));
+  } catch (error) {
+    console.error("Error deleting product:", error);
+  } finally {
     setDeletingIds(prev => prev.filter(id => id !== product.id));
+  }
   }
   // Load products, filtering out any that have been "deleted"
   // This is called on mount, and also when the page regains focus or comes back online
   const loadProducts = useCallback(async () => {
     setLoading(true);
+    try {
     const fetchedProducts = await fetchProducts();
     const deletedIds = JSON.parse(localStorage.getItem("deletedIds") || "[]");
     const filteredProducts = fetchedProducts.filter(p => !deletedIds.includes(p.id));
     setProducts(filteredProducts);
+  } catch (error) {
+    console.error("Error fetching products:", error);
+    setProducts([]); // Clear products on error
+  } finally {
     setLoading(false);
-  }, []);
+  }
+}, []);
 
-  useEffect(() => {
+useEffect(() => {
+  const deletedIds = JSON.parse(localStorage.getItem("deletedIds") || "[]");
+  const filteredProducts = initialProducts.filter(p => !deletedIds.includes(p.id));
+  setProducts(filteredProducts);
+}, [initialProducts]);
+/*   useEffect(() => {
     loadProducts();
-  }, [loadProducts]);
+  }, [loadProducts]); */
   // Set up event listeners for focus and online events
   // When the page regains focus or comes back online, reload products
   useEffect(() => {
