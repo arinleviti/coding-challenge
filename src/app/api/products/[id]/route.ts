@@ -1,18 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// request: the HTTP request
-// params: an object with the dynamic route params, here { id: string }
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  context: { params: Promise<{ id: string }> } // note the Promise
 ) {
-  const receivedParams = await params;
-  // Convert the id string to a number
-  const id = Number(receivedParams.id);
+  const params = await context.params;
+  const id = Number(params.id);
 
-  // Simulate latency
   await new Promise((res) => setTimeout(res, 500));
 
-  // Return a JSON response
   return NextResponse.json({ success: true, deletedId: id });
 }
