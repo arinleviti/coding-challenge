@@ -1,18 +1,8 @@
 'use client';
 import { Card, Button, Spinner } from "react-bootstrap";
 import styles from './ProductCard.module.css';
+import {Product} from '../../types/product-interface'
 
-interface Product {
-  id: number;
-  name: string;
-  brand: string;
-  stars: number;
-  price: number;
-  isBestseller: boolean;
-  discounted: boolean;
-  discountPercentage: number;
-  image: string;
-}
 
 interface Props {
   product: Product;

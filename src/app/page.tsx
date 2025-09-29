@@ -1,17 +1,7 @@
 import ProductList from './components/ProductList/Product-list';
 import { fetchProducts } from './lib/products';
+import {Product} from './types/product-interface'
 
-export interface Product {
-  id: number;
-  name: string;
-  brand: string;
-  stars: number;
-  price: number;
-  isBestseller: boolean;
-  discounted: boolean;
-  discountPercentage: number;
-  image: string;
-}
 
 export default async function HomePage() {
 // This runs on the server before sending HTML to the client

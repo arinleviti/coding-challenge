@@ -1,5 +1,5 @@
 
-import { Product } from '../page';
+import { Product } from '../types/product-interface';
 
 export async function fetchProducts(): Promise<Product[]> {
  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'; // server URL
